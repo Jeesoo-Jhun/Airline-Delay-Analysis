@@ -1,78 +1,42 @@
-# ✈️ Airline Delays Analysis
+# ✈️ Airline Delay Analysis
 
-This project investigates the causes and patterns behind flight delays in the United States. Using historical flight performance data from the U.S. Bureau of Transportation Statistics, we aim to identify the key drivers of delays, uncover trends across airlines and airports, and build a basic model to estimate delay probability.
+This project analyzes the main causes of flight delays using exploratory data analysis (EDA) and inferential statistics.
 
----
+## 📁 Data Sources
+- `flights.csv`
+- `airports.csv`
+- `airlines.csv`
 
 ## 🎯 Objectives
+- Identify key factors contributing to flight delays.
+- Address specific questions for three key stakeholder groups.
+- Present insights using clear and intuitive visualizations.
 
-- Understand when and why domestic U.S. flights are delayed.
-- Identify delay trends by:
-  - Airline carrier
-  - Airport (origin/destination)
-  - Day of the week / Month / Time of day
-  - Flight distance and route
-  - Weather conditions (if available)
-- Build a basic predictive model for flight delay classification.
+## 👥 Stakeholders & Questions
+1. **Passengers**
+   - What are the top causes of delays?
+   - Are certain airports more prone to delays?
+   - Is delay likelihood higher on certain dates?
 
----
+2. **Airlines**
+   - Which airline has the highest average delay?
+   - Are some routes more delayed than others?
+   - How do weather-related delays compare?
 
-## ❓ Key Questions
+3. **Airport Authorities**
+   - What time of day sees the most delays?
+   - Does airport size correlate with delay rates?
+   - Are delays clustered around specific holidays or seasons?
 
-1. Which airlines have the highest and lowest delay rates?
-2. Are some airports more prone to delays than others?
-3. Does time of day or day of week influence delay likelihood?
-4. What are the most common causes of delays (e.g., weather, carrier, late aircraft)?
-5. Can we predict if a flight will be delayed based on available features?
+## 🧹 Preprocessing
+- Removed irrelevant or incomplete columns.
+- Merged datasets by airport and airline codes.
+- Engineered new features for improved insights.
 
----
+## 📊 Key Findings
+- Weather and air traffic are among the leading causes of delays.
+- Some airports and airlines consistently show higher delay percentages.
+- Delays spike during holidays and certain peak hours.
 
-## 🗃️ Data Overview
-
-- **Source**: [U.S. Bureau of Transportation Statistics (BTS)](https://www.transtats.bts.gov/)
-- **Dataset**: On-Time Performance (e.g., 2015–2019)
-- **Volume**: Millions of rows per year
-- **Key columns**:
-  - `FL_DATE`, `OP_UNIQUE_CARRIER`, `ORIGIN`, `DEST`
-  - `DEP_TIME`, `DEP_DELAY`, `ARR_DELAY`, `CANCELLED`, `DIVERTED`
-  - `CARRIER_DELAY`, `WEATHER_DELAY`, `NAS_DELAY`, `SECURITY_DELAY`, `LATE_AIRCRAFT_DELAY`
-
-*Note: Weather data can be joined from NOAA or OpenWeather APIs (optional).*
-
----
-
-## 🛠️ Tools & Technologies
-
-- **Languages**: Python, SQL
-- **Libraries**: pandas, numpy, matplotlib, seaborn, plotly, scikit-learn
-- **Data storage/query**: PostgreSQL or SQLite
-- **Development**: Jupyter Notebook, VS Code
-- *(Optional)* Tableau or Power BI for dashboarding
-
----
-
-## 🧪 Project Workflow
-
-1. **Data Ingestion**
-   - Download and consolidate CSVs
-   - Clean column names, parse date/time fields
-
-2. **Data Cleaning & Transformation**
-   - Handle missing values, remove cancelled/diverted flights
-   - Create time-based features (hour bucket, weekday, etc.)
-   - Calculate binary delay target (e.g., delay ≥ 15 minutes)
-
-3. **Exploratory Data Analysis (EDA)**
-   - Distribution of delays by carrier, airport, month
-   - Correlation between features and delay duration
-   - Visualization of delay trends and delay causes
-
-4. **Modeling (Optional)**
-   - Train a classifier (Logistic Regression, Random Forest) to predict delays
-   - Evaluate using accuracy, precision, recall, AUC
-
-5. **Visualization & Communication**
-   - Bar charts, heatmaps, box plots, time series
-   - Optional dashboard using Tableau or Power BI
-
----
+## 📌 Note
+All code and visualizations are in the provided Jupyter notebook.
